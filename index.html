@@ -1,0 +1,1100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NuriTech Skills Initiative — Digital Literacy &amp; AI Safety for Children and Teens</title>
+<meta name="description" content="NuriTech Skills Initiative teaches Nigerian children and teens to explore technology and AI with confidence, curiosity, and care.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --teal-900:#0B3B3C;
+    --teal-800:#0E4A4B;
+    --teal-700:#116061;
+    --teal-500:#17878A;
+    --teal-200:#CFE7E4;
+    --orange-500:#F2843A;
+    --orange-600:#D96C22;
+    --yellow-400:#FFC93C;
+    --green-500:#4CAF7D;
+    --cream:#FBF7EF;
+    --paper:#FFFFFF;
+    --ink:#122726;
+    --ink-soft:#4B5F5E;
+    --ink-faint:#7C8C8B;
+    --line:#E1DACB;
+    --radius-xl:32px;
+    --radius-lg:24px;
+    --radius-md:16px;
+    --radius-sm:10px;
+    --shadow-soft: 0 20px 40px -24px rgba(11,59,60,0.28);
+    --shadow-tight: 0 8px 20px -12px rgba(11,59,60,0.25);
+    --wrap:1160px;
+  }
+
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    font-family:'Inter', sans-serif;
+    background:var(--cream);
+    color:var(--ink);
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  img{max-width:100%;display:block;}
+  a{color:inherit;text-decoration:none;}
+  ul{margin:0;padding:0;list-style:none;}
+  button{font-family:inherit;cursor:pointer;}
+  h1,h2,h3,h4{
+    font-family:'Fraunces', serif;
+    font-weight:600;
+    line-height:1.12;
+    margin:0;
+    color:var(--teal-900);
+    letter-spacing:-0.01em;
+  }
+  .wrap{max-width:var(--wrap);margin:0 auto;padding:0 28px;}
+  .eyebrow{
+    font-family:'Space Grotesk', sans-serif;
+    font-size:13px;
+    font-weight:600;
+    letter-spacing:0.14em;
+    text-transform:uppercase;
+    color:var(--orange-600);
+    display:inline-flex;
+    align-items:center;
+    gap:10px;
+  }
+  .eyebrow::before{
+    content:"";
+    width:22px;height:2px;
+    background:var(--orange-500);
+    border-radius:2px;
+    display:inline-block;
+  }
+  p.lead{
+    font-size:18px;
+    color:var(--ink-soft);
+    max-width:52ch;
+  }
+  :focus-visible{
+    outline:3px solid var(--teal-500);
+    outline-offset:3px;
+    border-radius:6px;
+  }
+  @media (prefers-reduced-motion: reduce){
+    *{animation-duration:0.01ms !important; animation-iteration-count:1 !important; transition-duration:0.01ms !important; scroll-behavior:auto !important;}
+  }
+
+  /* ---------- Buttons ---------- */
+  .btn{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    padding:14px 26px;
+    border-radius:999px;
+    font-weight:600;
+    font-size:15px;
+    border:2px solid transparent;
+    transition:transform .18s ease, box-shadow .18s ease, background .18s ease;
+    white-space:nowrap;
+  }
+  .btn-primary{
+    background:var(--orange-500);
+    color:#fff;
+    box-shadow:var(--shadow-tight);
+  }
+  .btn-primary:hover{background:var(--orange-600); transform:translateY(-2px);}
+  .btn-ghost{
+    background:transparent;
+    color:var(--teal-900);
+    border-color:var(--teal-900);
+  }
+  .btn-ghost:hover{background:var(--teal-900); color:#fff; transform:translateY(-2px);}
+  .btn-ghost-light{
+    background:transparent;
+    color:#fff;
+    border-color:rgba(255,255,255,0.55);
+  }
+  .btn-ghost-light:hover{background:rgba(255,255,255,0.14); border-color:#fff;}
+  .btn-block{width:100%; justify-content:center;}
+
+  /* ---------- Nav ---------- */
+  .site-header{
+    position:sticky; top:0; z-index:50;
+    background:rgba(251,247,239,0.88);
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--line);
+  }
+  .nav{
+    display:flex; align-items:center; justify-content:space-between;
+    padding:16px 28px;
+  }
+  .brand{
+    display:flex; align-items:center; gap:10px;
+    font-family:'Space Grotesk', sans-serif;
+    font-weight:700;
+    font-size:18px;
+    color:var(--teal-900);
+  }
+  .brand-mark{
+    width:38px; height:38px; border-radius:12px;
+    background:var(--teal-700);
+    display:flex; align-items:center; justify-content:center;
+    flex-shrink:0;
+  }
+  .nav-links{
+    display:flex; gap:30px;
+    font-size:15px; font-weight:500;
+    color:var(--teal-900);
+  }
+  .nav-links a{
+    position:relative; padding:4px 0;
+  }
+  .nav-links a::after{
+    content:""; position:absolute; left:0; bottom:-2px;
+    width:0; height:2px; background:var(--orange-500);
+    transition:width .2s ease;
+    border-radius:2px;
+  }
+  .nav-links a:hover::after{width:100%;}
+  .nav-actions{display:flex; align-items:center; gap:14px;}
+  .nav-toggle{
+    display:none;
+    background:none; border:none; padding:8px;
+  }
+  .nav-toggle svg{width:26px;height:26px;color:var(--teal-900);}
+
+  @media (max-width:900px){
+    .nav-links{
+      position:fixed; inset:72px 0 0 0;
+      background:var(--cream);
+      flex-direction:column; align-items:flex-start;
+      padding:28px;
+      gap:22px;
+      transform:translateY(-12px);
+      opacity:0;
+      pointer-events:none;
+      transition:opacity .2s ease, transform .2s ease;
+      font-size:20px;
+      border-top:1px solid var(--line);
+    }
+    .nav-links.open{opacity:1; transform:translateY(0); pointer-events:auto;}
+    .nav-toggle{display:block;}
+    .nav-actions .btn-ghost{display:none;}
+  }
+
+  /* ---------- Hero ---------- */
+  .hero{
+    position:relative;
+    overflow:hidden;
+    padding:76px 0 40px;
+  }
+  .hero-grid{
+    display:grid;
+    grid-template-columns:1.1fr 0.9fr;
+    gap:56px;
+    align-items:center;
+  }
+  .hero h1{
+    font-size:clamp(34px, 4.6vw, 56px);
+    margin:18px 0 20px;
+  }
+  .hero h1 .accent{color:var(--orange-500); font-style:italic;}
+  .hero-ctas{display:flex; gap:14px; flex-wrap:wrap; margin-top:30px;}
+  .hero-trust{
+    margin-top:34px; display:flex; gap:26px; flex-wrap:wrap;
+    font-family:'Space Grotesk', sans-serif;
+    font-size:13px; color:var(--ink-soft);
+  }
+  .hero-trust span{display:flex; align-items:center; gap:8px;}
+  .hero-trust svg{width:16px;height:16px; color:var(--green-500); flex-shrink:0;}
+
+  .hero-art{
+    position:relative;
+    aspect-ratio:1/1;
+    max-width:460px;
+    margin:0 auto;
+  }
+  .hero-art svg{width:100%; height:100%;}
+
+  /* ---------- Path signature (Teach -> Protect -> Empower) ---------- */
+  .journey{
+    padding:10px 0 86px;
+  }
+  .journey-path{
+    position:relative;
+    margin-top:52px;
+  }
+  .journey-svg{
+    position:absolute;
+    top:44px; left:0;
+    width:100%; height:auto;
+    z-index:0;
+  }
+  .journey-cards{
+    position:relative; z-index:1;
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:32px;
+  }
+  .journey-card{
+    background:var(--paper);
+    border-radius:var(--radius-lg);
+    padding:30px 26px;
+    box-shadow:var(--shadow-soft);
+    border:1px solid rgba(11,59,60,0.05);
+  }
+  .journey-icon{
+    width:52px; height:52px;
+    border-radius:16px;
+    display:flex; align-items:center; justify-content:center;
+    margin-bottom:18px;
+  }
+  .journey-icon svg{width:26px;height:26px;}
+  .journey-card:nth-child(1) .journey-icon{background:var(--teal-200); color:var(--teal-700);}
+  .journey-card:nth-child(2) .journey-icon{background:#FFE6C2; color:var(--orange-600);}
+  .journey-card:nth-child(3) .journey-icon{background:#DCF1E3; color:#2E8F5C;}
+  .journey-card h3{font-size:21px; margin-bottom:10px;}
+  .journey-card p{color:var(--ink-soft); font-size:15.5px; margin:0;}
+  .journey-step{
+    font-family:'Space Grotesk', sans-serif;
+    font-size:12px; font-weight:600; letter-spacing:0.1em;
+    text-transform:uppercase; color:var(--ink-faint);
+    margin-bottom:10px; display:block;
+  }
+
+  @media (max-width:900px){
+    .hero-grid{grid-template-columns:1fr; gap:38px;}
+    .hero-art{order:-1; max-width:280px;}
+    .journey-cards{grid-template-columns:1fr; gap:22px;}
+    .journey-svg{display:none;}
+  }
+
+  /* ---------- Section shells ---------- */
+  section{padding:88px 0;}
+  .section-cream{background:var(--cream);}
+  .section-paper{background:var(--paper);}
+  .section-teal{background:var(--teal-900); color:#fff;}
+  .section-teal h2, .section-teal h3{color:#fff;}
+  .section-head{
+    max-width:640px;
+    margin-bottom:52px;
+  }
+  .section-head h2{
+    font-size:clamp(28px,3.4vw,40px);
+    margin:16px 0 14px;
+  }
+  .section-head p{color:var(--ink-soft); font-size:17px; margin:0;}
+  .section-teal .section-head p{color:rgba(255,255,255,0.78);}
+
+  /* divider */
+  .wave{display:block; width:100%; height:64px;}
+
+  /* ---------- Why it matters ---------- */
+  .why-block{
+    display:grid;
+    grid-template-columns:0.9fr 1.1fr;
+    gap:60px;
+    align-items:center;
+  }
+  .why-copy p{font-size:18px; color:rgba(255,255,255,0.86); margin:0 0 18px;}
+  .why-copy p:last-child{margin-bottom:0;}
+  .why-copy strong{color:var(--yellow-400); font-weight:600;}
+  .why-stats{
+    display:grid; grid-template-columns:1fr 1fr; gap:18px;
+  }
+  .why-stat{
+    border:1px solid rgba(255,255,255,0.18);
+    border-radius:var(--radius-md);
+    padding:22px 20px;
+    background:rgba(255,255,255,0.04);
+  }
+  .why-stat .num{
+    font-family:'Space Grotesk', sans-serif;
+    font-size:34px; font-weight:700; color:var(--yellow-400);
+    display:block;
+  }
+  .why-stat .label{font-size:13.5px; color:rgba(255,255,255,0.75); margin-top:6px; display:block;}
+  @media (max-width:900px){ .why-block{grid-template-columns:1fr;} }
+
+  /* ---------- About ---------- */
+  .about-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:60px;
+    align-items:start;
+    margin-bottom:70px;
+  }
+  .about-grid h2{font-size:clamp(26px,3vw,36px); margin-bottom:18px;}
+  .about-grid p{color:var(--ink-soft); font-size:16.5px; margin:0 0 16px;}
+  .mv-cards{display:grid; grid-template-columns:1fr 1fr; gap:20px;}
+  .mv-card{
+    background:var(--cream);
+    border:1px solid var(--line);
+    border-radius:var(--radius-md);
+    padding:26px;
+  }
+  .mv-card .eyebrow{margin-bottom:10px;}
+  .mv-card p{color:var(--ink-soft); font-size:15.5px; margin:0;}
+
+  .values-grid{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:22px;
+  }
+  .value-card{
+    padding:26px 22px;
+    border-radius:var(--radius-md);
+    background:var(--cream);
+    border:1px solid var(--line);
+  }
+  .value-card .dot{
+    width:10px;height:10px;border-radius:50%;
+    background:var(--orange-500); margin-bottom:16px;
+  }
+  .value-card h4{font-size:17px; margin-bottom:8px;}
+  .value-card p{font-size:14.5px; color:var(--ink-soft); margin:0;}
+
+  .team-strip{
+    margin-top:64px;
+    border-top:1px dashed var(--line);
+    padding-top:44px;
+  }
+  .team-grid{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:24px;
+    margin-top:28px;
+  }
+  .team-card{
+    text-align:left;
+  }
+  .team-photo{
+    aspect-ratio:1/1;
+    border-radius:var(--radius-md);
+    background:linear-gradient(155deg, var(--teal-200), #EDE3CE);
+    display:flex; align-items:center; justify-content:center;
+    color:var(--teal-700);
+    margin-bottom:14px;
+  }
+  .team-photo svg{width:34px;height:34px;}
+  .team-card h4{font-size:15.5px; margin-bottom:2px;}
+  .team-card .role{font-size:13px; color:var(--orange-600); font-weight:600; margin-bottom:6px; display:block;}
+  .team-card p{font-size:13.5px; color:var(--ink-faint); margin:0;}
+
+  @media (max-width:900px){
+    .about-grid{grid-template-columns:1fr;}
+    .values-grid{grid-template-columns:1fr 1fr;}
+    .team-grid{grid-template-columns:1fr 1fr;}
+  }
+
+  /* ---------- Programs ---------- */
+  .programs-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:26px;
+  }
+  .program-card{
+    background:var(--paper);
+    border-radius:var(--radius-lg);
+    padding:28px 26px 30px;
+    border:1px solid var(--line);
+    transition:transform .2s ease, box-shadow .2s ease;
+    display:flex; flex-direction:column;
+  }
+  .program-card:hover{transform:translateY(-4px); box-shadow:var(--shadow-soft);}
+  .program-icon{
+    width:48px; height:48px; border-radius:14px;
+    background:var(--teal-200); color:var(--teal-700);
+    display:flex; align-items:center; justify-content:center;
+    margin-bottom:20px;
+  }
+  .program-icon svg{width:24px;height:24px;}
+  .program-card h3{font-size:19px; margin-bottom:8px;}
+  .program-age{
+    font-family:'Space Grotesk', sans-serif;
+    font-size:12px; font-weight:600; letter-spacing:0.06em;
+    color:var(--orange-600);
+    display:inline-block;
+    margin-bottom:12px;
+  }
+  .program-dots{
+    display:flex; gap:5px; margin:4px 0 14px;
+  }
+  .program-dots span{
+    width:5px;height:5px;border-radius:50%;
+    background:var(--line);
+  }
+  .program-dots span.on{background:var(--orange-500);}
+  .program-card p{color:var(--ink-soft); font-size:15px; margin:0 0 18px; flex-grow:1;}
+  .program-link{
+    font-weight:600; font-size:14.5px; color:var(--teal-700);
+    display:inline-flex; align-items:center; gap:6px;
+  }
+  .program-link svg{width:15px;height:15px; transition:transform .2s ease;}
+  .program-card:hover .program-link svg{transform:translateX(3px);}
+
+  @media (max-width:900px){ .programs-grid{grid-template-columns:1fr;} }
+
+  /* ---------- Impact ---------- */
+  .impact-stats{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:24px;
+    margin-bottom:56px;
+  }
+  .impact-stat{
+    text-align:center;
+    padding:34px 20px;
+    background:var(--paper);
+    border-radius:var(--radius-lg);
+    border:1px solid var(--line);
+  }
+  .impact-stat .num{
+    font-family:'Fraunces', serif;
+    font-size:46px; font-weight:600; color:var(--teal-700);
+    display:block;
+  }
+  .impact-stat .label{
+    font-size:14.5px; color:var(--ink-soft); margin-top:8px; display:block;
+  }
+  .impact-note{
+    font-size:12.5px; color:var(--ink-faint); text-align:center; margin-top:-38px; margin-bottom:56px;
+  }
+  .testimonial{
+    max-width:760px; margin:0 auto;
+    background:var(--paper);
+    border-radius:var(--radius-lg);
+    padding:44px 46px;
+    border:1px solid var(--line);
+    text-align:center;
+  }
+  .testimonial svg{width:34px; height:34px; color:var(--yellow-400); margin-bottom:18px;}
+  .testimonial blockquote{
+    font-family:'Fraunces', serif;
+    font-size:22px; font-weight:500; color:var(--teal-900);
+    margin:0 0 18px; line-height:1.45;
+  }
+  .testimonial cite{font-style:normal; font-size:14.5px; color:var(--ink-faint);}
+
+  @media (max-width:900px){ .impact-stats{grid-template-columns:1fr;} .testimonial{padding:34px 26px;} }
+
+  /* ---------- Get Involved ---------- */
+  .involve-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:26px;
+  }
+  .involve-card{
+    border-radius:var(--radius-lg);
+    padding:32px 28px;
+    color:#fff;
+    display:flex; flex-direction:column;
+    min-height:290px;
+  }
+  .involve-card:nth-child(1){background:var(--teal-700);}
+  .involve-card:nth-child(2){background:var(--orange-500);}
+  .involve-card:nth-child(3){background:var(--teal-900);}
+  .involve-icon{
+    width:46px; height:46px; border-radius:13px;
+    background:rgba(255,255,255,0.18);
+    display:flex; align-items:center; justify-content:center;
+    margin-bottom:22px;
+  }
+  .involve-icon svg{width:23px;height:23px;}
+  .involve-card h3{color:#fff; font-size:21px; margin-bottom:10px;}
+  .involve-card p{color:rgba(255,255,255,0.86); font-size:15px; margin:0 0 24px; flex-grow:1;}
+
+  @media (max-width:900px){ .involve-grid{grid-template-columns:1fr;} }
+
+  /* ---------- Contact ---------- */
+  .contact-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:60px;
+  }
+  .contact-info h2{font-size:clamp(26px,3vw,36px); margin-bottom:16px;}
+  .contact-info p{color:var(--ink-soft); font-size:16.5px; margin:0 0 30px; max-width:44ch;}
+  .contact-list{display:flex; flex-direction:column; gap:16px; margin-bottom:34px;}
+  .contact-list a{
+    display:flex; align-items:center; gap:14px;
+    font-weight:600; font-size:15.5px; color:var(--teal-900);
+  }
+  .contact-list .icon-circle{
+    width:42px;height:42px;border-radius:50%;
+    background:var(--teal-200); color:var(--teal-700);
+    display:flex; align-items:center; justify-content:center; flex-shrink:0;
+  }
+  .contact-list .icon-circle svg{width:19px;height:19px;}
+  .social-row{display:flex; gap:12px;}
+  .social-row a{
+    width:42px;height:42px;border-radius:50%;
+    background:var(--paper); border:1px solid var(--line);
+    display:flex; align-items:center; justify-content:center;
+    color:var(--teal-900);
+    transition:background .18s ease, color .18s ease;
+  }
+  .social-row a:hover{background:var(--teal-900); color:#fff;}
+  .social-row svg{width:18px;height:18px;}
+
+  .contact-form{
+    background:var(--paper);
+    border-radius:var(--radius-lg);
+    padding:36px;
+    border:1px solid var(--line);
+  }
+  .field{margin-bottom:20px;}
+  .field label{
+    display:block; font-size:13.5px; font-weight:600;
+    color:var(--teal-900); margin-bottom:8px;
+  }
+  .field input, .field textarea{
+    width:100%;
+    border:1.5px solid var(--line);
+    border-radius:var(--radius-sm);
+    padding:13px 15px;
+    font-family:inherit; font-size:15px; color:var(--ink);
+    background:var(--cream);
+    resize:vertical;
+    transition:border-color .18s ease;
+  }
+  .field input:focus, .field textarea:focus{
+    border-color:var(--teal-500); outline:none;
+  }
+  .form-note{font-size:12.5px; color:var(--ink-faint); margin-top:14px; text-align:center;}
+  .form-success{
+    display:none;
+    background:#E9F6EE; color:#276B48;
+    border-radius:var(--radius-sm);
+    padding:14px 16px; font-size:14px; font-weight:600;
+    margin-bottom:18px;
+    align-items:center; gap:10px;
+  }
+  .form-success svg{width:18px;height:18px; flex-shrink:0;}
+  .form-success.show{display:flex;}
+
+  @media (max-width:900px){ .contact-grid{grid-template-columns:1fr;} }
+
+  /* ---------- Footer ---------- */
+  footer{
+    background:var(--teal-900);
+    color:rgba(255,255,255,0.75);
+    padding:56px 0 28px;
+  }
+  .footer-top{
+    display:flex; justify-content:space-between; align-items:flex-start;
+    flex-wrap:wrap; gap:32px;
+    padding-bottom:36px;
+    border-bottom:1px solid rgba(255,255,255,0.12);
+  }
+  .footer-brand .brand{color:#fff;}
+  .footer-brand p{max-width:34ch; font-size:14.5px; margin-top:14px; color:rgba(255,255,255,0.65);}
+  .footer-links{display:flex; gap:56px; flex-wrap:wrap;}
+  .footer-col h5{
+    font-family:'Space Grotesk', sans-serif; font-size:13px;
+    letter-spacing:0.08em; text-transform:uppercase;
+    color:rgba(255,255,255,0.5); margin-bottom:14px;
+  }
+  .footer-col ul{display:flex; flex-direction:column; gap:10px;}
+  .footer-col a{font-size:14.5px; color:rgba(255,255,255,0.85);}
+  .footer-col a:hover{color:var(--yellow-400);}
+  .footer-bottom{
+    display:flex; justify-content:space-between; align-items:center;
+    flex-wrap:wrap; gap:12px;
+    padding-top:24px;
+    font-size:13px; color:rgba(255,255,255,0.5);
+  }
+
+  /* ---------- Reveal on scroll ---------- */
+  .reveal{opacity:0; transform:translateY(18px); transition:opacity .6s ease, transform .6s ease;}
+  .reveal.in{opacity:1; transform:translateY(0);}
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <nav class="nav wrap">
+    <a href="#home" class="brand">
+      <span class="brand-mark">
+        <svg viewBox="0 0 24 24" fill="none" width="20" height="20"><path d="M12 2 L20 6 V12 C20 17 16.5 20.5 12 22 C7.5 20.5 4 17 4 12 V6 Z" stroke="#FFC93C" stroke-width="1.6" fill="none"/><path d="M9 12.5 L11 14.5 L15.5 9.5" stroke="#FFC93C" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </span>
+      NuriTech Skills Initiative
+    </a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#about">About</a></li>
+      <li><a href="#programs">Programs</a></li>
+      <li><a href="#impact">Impact</a></li>
+      <li><a href="#involved">Get Involved</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <div class="nav-actions">
+      <a href="#involved" class="btn btn-ghost">Enroll a Child</a>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M3 12h18M3 18h18" stroke-linecap="round"/></svg>
+      </button>
+    </div>
+  </nav>
+</header>
+
+<main>
+
+  <!-- HOME / HERO -->
+  <section class="hero" id="home">
+    <div class="wrap hero-grid">
+      <div>
+        <span class="eyebrow">A safe way in, for every child</span>
+        <h1>Helping Nigerian Children and Teens Explore Technology and <span class="accent">AI</span>, Safely</h1>
+        <p class="lead">NuriTech Skills Initiative teaches young people to use technology with confidence, curiosity, and care, so they grow up ready for a digital world instead of overwhelmed by it.</p>
+        <div class="hero-ctas">
+          <a href="#involved" class="btn btn-primary">Enroll a Child</a>
+          <a href="#involved" class="btn btn-ghost">Support Our Mission</a>
+        </div>
+        <div class="hero-trust">
+          <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round"/></svg>Every lesson is paired with a safety lesson</span>
+          <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round"/></svg>Built for children, teens, and the parents guiding them</span>
+        </div>
+      </div>
+      <div class="hero-art" aria-hidden="true">
+        <svg viewBox="0 0 420 420" fill="none">
+          <circle cx="210" cy="210" r="196" fill="#0E4A4B"/>
+          <circle cx="210" cy="210" r="196" stroke="#FFC93C" stroke-width="1.5" stroke-dasharray="2 10" fill="none"/>
+          <path d="M210 90 L292 132 V206 C292 262 258 300 210 320 C162 300 128 262 128 206 V132 Z" fill="#0B3B3C" stroke="#F2843A" stroke-width="2.5"/>
+          <circle cx="210" cy="196" r="30" fill="#FFC93C"/>
+          <path d="M198 196 h24 M210 184 v24" stroke="#0B3B3C" stroke-width="4" stroke-linecap="round"/>
+          <path d="M150 250 q60 40 120 0" stroke="#F2843A" stroke-width="3" stroke-linecap="round" fill="none"/>
+          <circle cx="150" cy="250" r="5" fill="#F2843A"/>
+          <circle cx="270" cy="250" r="5" fill="#F2843A"/>
+          <circle cx="120" cy="100" r="6" fill="#4CAF7D"/>
+          <circle cx="308" cy="120" r="4" fill="#FFC93C"/>
+          <circle cx="90" cy="300" r="4" fill="#FFC93C"/>
+        </svg>
+      </div>
+    </div>
+  </section>
+
+  <!-- JOURNEY: Teach / Protect / Empower -->
+  <section class="journey section-cream">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <span class="eyebrow">What we do</span>
+        <h2>Three steps, in this order, every time</h2>
+        <p>We don't just teach tools. We teach them alongside the judgment to use those tools well, in a sequence that builds on itself.</p>
+      </div>
+      <div class="journey-path">
+        <svg class="journey-svg" viewBox="0 0 1100 60" fill="none" preserveAspectRatio="none" aria-hidden="true">
+          <path d="M120 30 C 300 -20, 460 80, 550 30 C 640 -20, 800 80, 980 30" stroke="#D8CBAE" stroke-width="2.5" stroke-dasharray="1 12" stroke-linecap="round"/>
+        </svg>
+        <div class="journey-cards">
+          <div class="journey-card reveal">
+            <span class="journey-step">Step 1</span>
+            <div class="journey-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 6.5C4 5.1 5.1 4 6.5 4H12v16H6.5C5.1 20 4 18.9 4 17.5V6.5Z" stroke-linejoin="round"/><path d="M20 6.5C20 5.1 18.9 4 17.5 4H12v16h5.5c1.4 0 2.5-1.1 2.5-2.5V6.5Z" stroke-linejoin="round"/></svg></div>
+            <h3>Teach</h3>
+            <p>We introduce children and teens to technology and AI through hands on, age appropriate learning, not just theory on a screen.</p>
+          </div>
+          <div class="journey-card reveal">
+            <span class="journey-step">Step 2</span>
+            <div class="journey-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 3 19 6.5V12c0 5-3.5 8.5-7 9.5-3.5-1-7-4.5-7-9.5V6.5Z" stroke-linejoin="round"/><path d="M9 12l2 2 4-4.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+            <h3>Protect</h3>
+            <p>Every lesson we teach comes with a safety lesson beside it. We help young people recognize risk online before it finds them.</p>
+          </div>
+          <div class="journey-card reveal">
+            <span class="journey-step">Step 3</span>
+            <div class="journey-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2 L14.5 8.5 21 9 16 13.3 17.5 20 12 16.6 6.5 20 8 13.3 3 9 9.5 8.5 Z" stroke-linejoin="round"/></svg></div>
+            <h3>Empower</h3>
+            <p>We do not just prepare kids to use technology. We prepare them to build with it, question it, and lead with it.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHY THIS MATTERS -->
+  <section class="section-teal">
+    <div class="wrap why-block">
+      <div class="why-copy reveal">
+        <span class="eyebrow" style="color:var(--yellow-400)">Why this matters</span>
+        <h2 style="margin:16px 0 22px;">The question is no longer whether they'll meet AI. It's whether they'll be ready.</h2>
+        <p>Technology is already shaping how children learn, play, and connect. <strong>NuriTech Skills Initiative exists to close that gap</strong>, one child, one classroom, one community at a time.</p>
+      </div>
+      <div class="why-stats reveal">
+        <div class="why-stat">
+          <span class="num">500+</span>
+          <span class="label">Children and teens reached [placeholder]</span>
+        </div>
+        <div class="why-stat">
+          <span class="num">40+</span>
+          <span class="label">Workshops run [placeholder]</span>
+        </div>
+        <div class="why-stat">
+          <span class="num">15</span>
+          <span class="label">Partner schools [placeholder]</span>
+        </div>
+        <div class="why-stat">
+          <span class="num">100%</span>
+          <span class="label">Lessons paired with a safety lesson</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section class="section-paper" id="about">
+    <div class="wrap">
+      <div class="about-grid">
+        <div class="reveal">
+          <span class="eyebrow">Our story</span>
+          <h2 style="margin-top:16px;">Built on one belief</h2>
+          <p>NuriTech Skills Initiative was founded on a simple belief: children should not have to choose between exploring technology and staying safe while doing it.</p>
+          <p>Too many young people are handed devices with no guidance on how to use them wisely, and too many safety conversations happen only after something has already gone wrong. We started NuriTech to change that order, teaching digital literacy and online safety together, from the very first lesson.</p>
+          <p>Today, we work with children, teens, parents, and schools to build a generation that is not just comfortable with technology, but genuinely equipped to use it well.</p>
+        </div>
+        <div class="mv-cards reveal">
+          <div class="mv-card">
+            <span class="eyebrow">Our mission</span>
+            <p>To equip children and teens with the digital literacy, AI awareness, and online safety skills they need to thrive in a technology driven world.</p>
+          </div>
+          <div class="mv-card">
+            <span class="eyebrow">Our vision</span>
+            <p>A generation of young people who use technology with confidence, judgment, and purpose, not fear or blind dependence.</p>
+          </div>
+          <div class="mv-card" style="grid-column:1/-1;">
+            <span class="eyebrow">Who it's for</span>
+            <p>Children and teens ready to start learning, and the parents, guardians, and schools deciding it's time to guide them there.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="reveal">
+        <span class="eyebrow">Our values</span>
+        <h2 style="margin:16px 0 30px; font-size:clamp(24px,2.8vw,32px);">What guides every program we run</h2>
+        <div class="values-grid">
+          <div class="value-card">
+            <div class="dot"></div>
+            <h4>Safety First</h4>
+            <p>Every program we run treats online safety as a foundation, not an afterthought.</p>
+          </div>
+          <div class="value-card">
+            <div class="dot" style="background:var(--teal-700);"></div>
+            <h4>Curiosity Over Fear</h4>
+            <p>We do not teach children to be afraid of technology. We teach them to understand it.</p>
+          </div>
+          <div class="value-card">
+            <div class="dot" style="background:var(--green-500);"></div>
+            <h4>Equity</h4>
+            <p>Every child deserves access to digital literacy, regardless of background or location.</p>
+          </div>
+          <div class="value-card">
+            <div class="dot" style="background:var(--yellow-400);"></div>
+            <h4>Community</h4>
+            <p>Real digital safety is a shared responsibility between children, parents, schools, and organizations like ours.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="team-strip reveal">
+        <span class="eyebrow">Our team</span>
+        <h2 style="margin:16px 0 6px; font-size:clamp(24px,2.8vw,32px);">The people behind the programs</h2>
+        <p style="color:var(--ink-soft); max-width:52ch;">Photos and bios go here once the team is confirmed. Suggested per person: photo, name, role, one line background, one sentence on why this work matters to them.</p>
+        <div class="team-grid">
+          <div class="team-card">
+            <div class="team-photo"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="8" r="3.5"/><path d="M5 20c0-4 3-6.5 7-6.5s7 2.5 7 6.5"/></svg></div>
+            <h4>Name Placeholder</h4>
+            <span class="role">Founder &amp; Executive Director</span>
+            <p>One sentence on background and why this work matters to them.</p>
+          </div>
+          <div class="team-card">
+            <div class="team-photo"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="8" r="3.5"/><path d="M5 20c0-4 3-6.5 7-6.5s7 2.5 7 6.5"/></svg></div>
+            <h4>Name Placeholder</h4>
+            <span class="role">Programs Lead</span>
+            <p>One sentence on background and why this work matters to them.</p>
+          </div>
+          <div class="team-card">
+            <div class="team-photo"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="8" r="3.5"/><path d="M5 20c0-4 3-6.5 7-6.5s7 2.5 7 6.5"/></svg></div>
+            <h4>Name Placeholder</h4>
+            <span class="role">Safety &amp; Curriculum</span>
+            <p>One sentence on background and why this work matters to them.</p>
+          </div>
+          <div class="team-card">
+            <div class="team-photo"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="8" r="3.5"/><path d="M5 20c0-4 3-6.5 7-6.5s7 2.5 7 6.5"/></svg></div>
+            <h4>Name Placeholder</h4>
+            <span class="role">Community Partnerships</span>
+            <p>One sentence on background and why this work matters to them.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROGRAMS -->
+  <section class="section-cream" id="programs">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <span class="eyebrow">Programs</span>
+        <h2>A path for every age, taught the same careful way</h2>
+        <p>Each program pairs a technology skill with the safety judgment to use it well. Ages are a guide. We place every child by readiness, not just birthday.</p>
+      </div>
+      <div class="programs-grid">
+
+        <div class="program-card reveal">
+          <div class="program-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2Z"/></svg></div>
+          <span class="program-age">AGES 7 – 10</span>
+          <div class="program-dots"><span class="on"></span><span></span><span></span><span></span></div>
+          <h3>Digital Literacy Basics</h3>
+          <p>The first steps online: how devices work, how to search safely, and how to tell what's real.</p>
+          <a href="#contact" class="program-link">Ask about this program <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        </div>
+
+        <div class="program-card reveal">
+          <div class="program-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M8 9 4 12l4 3M16 9l4 3-4 3M13 6l-2 12"/></svg></div>
+          <span class="program-age">AGES 10 – 14</span>
+          <div class="program-dots"><span class="on"></span><span class="on"></span><span></span><span></span></div>
+          <h3>Coding Club</h3>
+          <p>Hands on coding projects that build logic and confidence, one small win at a time.</p>
+          <a href="#contact" class="program-link">Ask about this program <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        </div>
+
+        <div class="program-card reveal">
+          <div class="program-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2 4 6v6c0 5 3.5 8.5 8 10 4.5-1.5 8-5 8-10V6Z"/><path d="M9 12l2 2 4-4.5"/></svg></div>
+          <span class="program-age">AGES 13 – 17</span>
+          <div class="program-dots"><span class="on"></span><span class="on"></span><span class="on"></span><span></span></div>
+          <h3>AI Safety for Teens</h3>
+          <p>What AI tools can and can't do, where they get things wrong, and how to use them without being used by them.</p>
+          <a href="#contact" class="program-link">Ask about this program <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        </div>
+
+        <div class="program-card reveal">
+          <div class="program-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.5 2"/></svg></div>
+          <span class="program-age">TEENS, 14 – 17</span>
+          <div class="program-dots"><span class="on"></span><span class="on"></span><span class="on"></span><span></span></div>
+          <h3>Screen Time &amp; Focus Workshop</h3>
+          <p>Practical habits for a healthier relationship with phones, apps, and notifications.</p>
+          <a href="#contact" class="program-link">Ask about this program <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        </div>
+
+        <div class="program-card reveal">
+          <div class="program-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 20c0-4 3-6.5 7-6.5s7 2.5 7 6.5"/><circle cx="12" cy="8" r="3.5"/></svg></div>
+          <span class="program-age">FOR PARENTS &amp; GUARDIANS</span>
+          <div class="program-dots"><span class="on"></span><span></span><span></span><span></span></div>
+          <h3>Online Safety Workshops for Parents</h3>
+          <p>What to watch for, what to ask your child, and how to set rules that actually work at home.</p>
+          <a href="#contact" class="program-link">Ask about this program <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        </div>
+
+        <div class="program-card reveal">
+          <div class="program-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 4h16v12H8l-4 4Z"/></svg></div>
+          <span class="program-age">FOR SCHOOLS</span>
+          <div class="program-dots"><span class="on"></span><span class="on"></span><span></span><span></span></div>
+          <h3>Classroom Partnership Program</h3>
+          <p>A ready to run curriculum and trained facilitators, brought directly into your school.</p>
+          <a href="#contact" class="program-link">Ask about this program <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- IMPACT -->
+  <section class="section-paper" id="impact">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <span class="eyebrow">Impact</span>
+        <h2>What this looks like in real classrooms</h2>
+        <p>Numbers below are placeholders. Swap in verified totals once confirmed.</p>
+      </div>
+      <div class="impact-stats reveal">
+        <div class="impact-stat">
+          <span class="num">500+</span>
+          <span class="label">Children and teens reached</span>
+        </div>
+        <div class="impact-stat">
+          <span class="num">40+</span>
+          <span class="label">Workshops run</span>
+        </div>
+        <div class="impact-stat">
+          <span class="num">15</span>
+          <span class="label">Schools partnered</span>
+        </div>
+      </div>
+      <div class="testimonial reveal">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M7 17c0-4 2.5-7 6-8l1 2c-2 1-3 2.5-3 4h3v6H7v-4Zm9 0c0-4 2.5-7 6-8l1 2c-2 1-3 2.5-3 4h3v6h-7v-4Z"/></svg>
+        <blockquote>"My son used to just hand me his phone when something felt wrong. Now he tells me why it felt wrong before I even ask. That's the difference this program made."</blockquote>
+        <cite>Parent testimonial placeholder, to be replaced with a real quote</cite>
+      </div>
+    </div>
+  </section>
+
+  <!-- GET INVOLVED -->
+  <section class="section-cream" id="involved">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <span class="eyebrow">Get involved</span>
+        <h2>Three ways in, pick the one that fits</h2>
+        <p>Whether you're a parent, a professional, or a partner organization, there's a clear next step here.</p>
+      </div>
+      <div class="involve-grid">
+        <div class="involve-card reveal">
+          <div class="involve-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.8"><path d="M5 20c0-4 3-6.5 7-6.5s7 2.5 7 6.5"/><circle cx="12" cy="8" r="3.5"/></svg></div>
+          <h3>Enroll a Child</h3>
+          <p>Give a young person in your life the digital literacy foundation every child deserves.</p>
+          <a href="#contact" class="btn btn-ghost-light btn-block">Enroll a Child</a>
+        </div>
+        <div class="involve-card reveal">
+          <div class="involve-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.8"><path d="M12 2 14.5 8.5 21 9 16 13.3 17.5 20 12 16.6 6.5 20 8 13.3 3 9 9.5 8.5 Z"/></svg></div>
+          <h3>Volunteer</h3>
+          <p>Bring your skills into a classroom and help shape how a generation grows up online.</p>
+          <a href="#contact" class="btn btn-ghost-light btn-block">Apply to Volunteer</a>
+        </div>
+        <div class="involve-card reveal">
+          <div class="involve-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.8"><path d="M12 21s-7-4.5-9.5-9C.5 8 2 4 6 4c2 0 3.5 1 4 2.5C10.5 5 12 4 14 4c4 0 5.5 4 3.5 8-2.5 4.5-9.5 9-9.5 9Z"/></svg></div>
+          <h3>Partner or Donate</h3>
+          <p>Support the programs, materials, and safety training that make our work possible.</p>
+          <a href="#contact" class="btn btn-ghost-light btn-block">Partner With Us</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="section-paper" id="contact">
+    <div class="wrap contact-grid">
+      <div class="contact-info reveal">
+        <span class="eyebrow">Contact</span>
+        <h2 style="margin-top:16px;">Let's talk about your child, your classroom, or your organization</h2>
+        <p>Send a message and we'll get back to you within two business days. Prefer to talk directly? Reach us below.</p>
+        <div class="contact-list">
+          <a href="mailto:hello@nuritechskillsinitiative.org">
+            <span class="icon-circle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 6h18v12H3Z"/><path d="m3 7 9 6 9-6"/></svg></span>
+            hello@nuritechskillsinitiative.org
+          </a>
+          <a href="https://wa.me/2340000000000" target="_blank" rel="noopener">
+            <span class="icon-circle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 21l1.6-4.8A8 8 0 1 1 8.5 19Z"/></svg></span>
+            Chat with us on WhatsApp
+          </a>
+        </div>
+        <span class="eyebrow" style="margin-bottom:14px; display:inline-flex;">Follow along</span>
+        <div class="social-row">
+          <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r="1"/></svg></a>
+          <a href="#" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M15 8h-2a2 2 0 0 0-2 2v10M9 13h6"/><circle cx="12" cy="12" r="9"/></svg></a>
+          <a href="#" aria-label="X"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M4 4l16 16M20 4 4 20"/></svg></a>
+          <a href="#" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3" y="3" width="18" height="18" rx="4"/><path d="M7 10v7M7 7v.01M11 17v-4.5c0-1.4 1-2.5 2.5-2.5S16 11.1 16 12.5V17"/></svg></a>
+        </div>
+      </div>
+
+      <form class="contact-form reveal" id="contactForm">
+        <div class="form-success" id="formSuccess">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          Thanks, your message has been sent. We'll reply within two business days.
+        </div>
+        <div class="field">
+          <label for="name">Full name</label>
+          <input type="text" id="name" name="name" placeholder="Your name" required>
+        </div>
+        <div class="field">
+          <label for="email">Email address</label>
+          <input type="email" id="email" name="email" placeholder="you@example.com" required>
+        </div>
+        <div class="field">
+          <label for="message">Message</label>
+          <textarea id="message" name="message" rows="5" placeholder="Tell us a bit about your child, classroom, or organization" required></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary btn-block">Send Message</button>
+        <p class="form-note">We only use this to reply to you. Your information is never shared.</p>
+      </form>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <a href="#home" class="brand">
+          <span class="brand-mark">
+            <svg viewBox="0 0 24 24" fill="none" width="20" height="20"><path d="M12 2 L20 6 V12 C20 17 16.5 20.5 12 22 C7.5 20.5 4 17 4 12 V6 Z" stroke="#FFC93C" stroke-width="1.6" fill="none"/></svg>
+          </span>
+          NuriTech Skills Initiative
+        </a>
+        <p>Teaching children and teens to explore technology and AI with confidence, curiosity, and care.</p>
+      </div>
+      <div class="footer-links">
+        <div class="footer-col">
+          <h5>Explore</h5>
+          <ul>
+            <li><a href="#about">About</a></li>
+            <li><a href="#programs">Programs</a></li>
+            <li><a href="#impact">Impact</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h5>Involved</h5>
+          <ul>
+            <li><a href="#involved">Enroll a Child</a></li>
+            <li><a href="#involved">Volunteer</a></li>
+            <li><a href="#involved">Partner or Donate</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h5>Contact</h5>
+          <ul>
+            <li><a href="mailto:hello@nuritechskillsinitiative.org">Email us</a></li>
+            <li><a href="#contact">Contact form</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 NuriTech Skills Initiative. All rights reserved.</span>
+      <span>Built with care in Lagos, Nigeria.</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Mobile nav toggle
+  const navToggle = document.getElementById('navToggle');
+  const navLinks = document.getElementById('navLinks');
+  navToggle.addEventListener('click', () => {
+    const isOpen = navLinks.classList.toggle('open');
+    navToggle.setAttribute('aria-expanded', isOpen);
+  });
+  navLinks.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+      navLinks.classList.remove('open');
+      navToggle.setAttribute('aria-expanded', 'false');
+    });
+  });
+
+  // Scroll reveal
+  const revealEls = document.querySelectorAll('.reveal');
+  if ('IntersectionObserver' in window) {
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('in');
+          io.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12 });
+    revealEls.forEach(el => io.observe(el));
+  } else {
+    revealEls.forEach(el => el.classList.add('in'));
+  }
+
+  // Contact form (client-side only, no backend wired up yet)
+  const form = document.getElementById('contactForm');
+  const success = document.getElementById('formSuccess');
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    success.classList.add('show');
+    form.reset();
+    success.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+  });
+</script>
+
+</body>
+</html>
